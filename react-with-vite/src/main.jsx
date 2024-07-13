@@ -1,10 +1,14 @@
 import ReactDOM from "react-dom/client";
 import { restaurants } from "./materials/mocks";
+import { Layout } from "./components/layout/layout.component";
 
 const rootElment = document.getElementById("root");
 const reactRoot = ReactDOM.createRoot(rootElment);
 
-reactRoot.render(restaurants.map((item) => (
+reactRoot.render(
+  <div>
+ <Layout>
+ { restaurants.map((item) => (
   <div className="restaurant-card" key={item.id}>
     <div className="restaurant-card__name">
       <h1>{item.name}</h1>
@@ -25,7 +29,9 @@ reactRoot.render(restaurants.map((item) => (
         ))}
       </ul>
     </div>
+  </div>))
+  }
+</Layout>
   </div>
-)));
-
+);
 
