@@ -10,3 +10,7 @@ export const Layout = ({ children }) => {
     </div>
   );
 };
+
+Layout.propTypes = {
+    children: "" // TODO How to deal with it? 
+  }
