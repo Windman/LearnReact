@@ -1,0 +1,26 @@
+.df {
+    display: flex;
+}
+
+.pr6 {
+    padding-right: 6px;
+}
+
+.pl6 {
+    padding-left: 6px;
+}
+
+.counter-value {
+    padding: 3px;
+}
+
+.menu-item {
+    display: flex;
+}
+
+.menu-item__label {
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
