@@ -6,10 +6,10 @@ import { Navigation } from "./navigation/natigation.component";
 import { useState } from "react";
 
 export const App = () => {
-  const [value, setValue] = useState(restaurants.length ? restaurants[0] : undefined);
+  const [activeRestaurant, setActiveRestaurant] = useState(restaurants.length ? restaurants[0] : undefined);
   
   const handleRestaurantSelection = (index) => {
-    setValue(restaurants[index]);
+    setActiveRestaurant(restaurants[index]);
   }
 
   return (
@@ -17,7 +17,7 @@ export const App = () => {
       <Layout>
         <Title name="Restaurants" />
         <Navigation items={restaurants} onSelect={handleRestaurantSelection}/>
-        <RestaurantCard item={value} />
+        <RestaurantCard item={activeRestaurant} />
       </Layout>
     </div>
   );

@@ -4,7 +4,7 @@ import { Counter } from "./counter.component";
 const counterMin = 0;
 const counterMax = 100;
 
-export const CounterContainer = ({ min, max }) => {
+export const CounterContainer = ({ min = counterMin, max = counterMax }) => {
   const [value, setValue] = useState(min);
 
   const increment = () => {
@@ -23,7 +23,4 @@ export const CounterContainer = ({ min, max }) => {
   return <Counter value={value} increment={increment} decrement={decrement} />;
 };
 
-CounterContainer.defaultProps = {
-  min: counterMin,
-  max: counterMax,
-}
+
