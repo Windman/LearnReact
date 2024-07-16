@@ -24,3 +24,11 @@
     overflow: hidden;
     text-wrap: nowrap;
 }
+
+.navigation {
+    display: flex;
+}
+
+.navigation-item {
+    padding-right: 5px;
+}

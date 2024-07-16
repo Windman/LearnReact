@@ -1,10 +1,10 @@
 import { CounterContainer } from "../counter/counter.container";
 
-const maxCount = 5;
-const minCount = 0;
+const maxMenuItemCount = 5;
+const minMenuItemCount = 0;
 
 export const RestaurantCard = ({ item }) => {
-  if (isValidRestaurantGuard(item)) return null;
+  if (!isValidRestaurantGuard(item)) return null;
 
   return (
     <div className="restaurant-card" key={item.id}>
@@ -17,7 +17,7 @@ export const RestaurantCard = ({ item }) => {
           {item.menu.map((menuItem) => (
             <li key={menuItem.id} className="menu-item">
               <div className="menu-item__label">{menuItem.name}</div>
-              <CounterContainer min={minCount} max={maxCount} />
+              <CounterContainer min={minMenuItemCount} max={maxMenuItemCount} />
             </li>
           ))}
         </ul>
@@ -37,6 +37,8 @@ export const RestaurantCard = ({ item }) => {
 
 const isValidRestaurantGuard = (item) =>{
     if (!item || !item.id || !item.name || !item.menu || !item.menu.length || !item.reviews || !item.reviews.length) {
-        return null;
+        return false;
     }
+
+    return true;
 }

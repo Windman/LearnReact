@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Counter } from "./counter.component";
 
+const counterMin = 0;
+const counterMax = 100;
+
 export const CounterContainer = ({ min, max }) => {
   const [value, setValue] = useState(min);
 
@@ -19,3 +22,8 @@ export const CounterContainer = ({ min, max }) => {
 
   return <Counter value={value} increment={increment} decrement={decrement} />;
 };
+
+CounterContainer.defaultProps = {
+  min: counterMin,
+  max: counterMax,
+}
