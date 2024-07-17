@@ -1,4 +1,4 @@
-export const Navigation = ({ items, selectedIndex, onSelect, type }) => {
+export const Navigation = ({ items, selectedIndex=0, onSelect, type="TAB" }) => {
   return (
     <div className="navigation">
       {items.map((item, index) => (
@@ -10,7 +10,3 @@ export const Navigation = ({ items, selectedIndex, onSelect, type }) => {
   );
 };
 
-Navigation.defaultProps = {
-  type: "TAB",
-  selectedIndex: 0,
-};
