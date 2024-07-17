@@ -5,12 +5,13 @@ const counterMin = 0;
 const counterMax = 100;
 
 export const CounterContainer = ({
+  counter = 0,
   min = counterMin,
   max = counterMax,
   onChanges = ()=>{},
 }) => {
-  const [value, setValue] = useState([min]); //Как сделать reset для state? 
-
+  const [value, setValue] = useState(counter); 
+  
   const increment = () => {
     if (value >= max) {
       return;

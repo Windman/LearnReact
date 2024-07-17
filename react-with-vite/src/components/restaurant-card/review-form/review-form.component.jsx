@@ -29,6 +29,7 @@ export const ReviewForm = () => {
         <span className="form__label">Rating</span>
         {
           <CounterContainer
+            value={rating}
             min={1}
             max={5}
             onChanges={(counterValue) => {
