@@ -1,18 +1,14 @@
 import { useReviewForm } from "./review-form.hook";
+import { CounterContainer } from "../../counter/counter.container";
 
 export const ReviewForm = () => {
   const { form, updateField, resetForm } = useReviewForm();
   const { name, text, rating } = form;
 
-  const handleSubmit = (form) => {
-    console.log("handle submit", form);
-    resetForm();
-  };
-
   return (
     <div>
-      <div>
-        <span>Name</span>
+      <div className="df">
+        <span className="form__label">Name</span>
         <input
           value={name}
           onChange={(event) => {
@@ -20,8 +16,8 @@ export const ReviewForm = () => {
           }}
         />
       </div>
-      <div>
-        <span>Text</span>
+      <div className="df">
+        <span className="form__label">Text</span>
         <input
           value={text}
           onChange={(event) => {
@@ -29,20 +25,24 @@ export const ReviewForm = () => {
           }}
         />
       </div>
-      <div>
-        <span>Rating</span>
-        <input
-          value={rating}
-          onChange={(event) => {
-            updateField("setRating", event.target.value);
-          }}
-        />
+      <div className="df">
+        <span className="form__label">Rating</span>
+        {
+          <CounterContainer
+            min={1}
+            max={5}
+            onChanges={(counterValue) => {
+              updateField("setRating", counterValue);
+            }}
+          />
+        }
       </div>
       <div>
         <button
           type="submit"
           onClick={() => {
-            handleSubmit(form);
+            console.log("review form", form);
+            resetForm();
           }}
         >
           Submit

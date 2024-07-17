@@ -3,7 +3,7 @@ import { useReducer } from "react";
 const INITIAL_REVIEW_FORM = {
   name: "",
   text: "",
-  rating: 0,
+  rating: 1,
 };
 
 function reducer(state, { formField, payload }) {
