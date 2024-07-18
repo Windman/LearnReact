@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export const App = () => {
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants.length ? restaurants[0] : undefined);
-  
+
   const handleRestaurantSelection = (index) => {
     setActiveRestaurant(restaurants[index]);
   }

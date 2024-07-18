@@ -1,18 +1,20 @@
 import { useReviewForm } from "./review-form.hook";
 import { Counter } from "../../counter/counter.component";
 
+const counterSettings = {min: 1, max: 5};
+
 export const ReviewForm = () => {
   const { form, updateField, resetForm } = useReviewForm();
   const { name, text, rating } = form;
 
   const increment = () => {
-    if (rating >= 5) {
+    if (rating >= counterSettings.max) {
       return;
     }
     updateField("setRating", rating + 1);
   };
   const decrement = () => {
-    if (rating <= 1) {
+    if (rating <= counterSettings.min) {
       return;
     }
     updateField("setRating", rating - 1);
@@ -46,7 +48,6 @@ export const ReviewForm = () => {
         <button
           type="submit"
           onClick={() => {
-            console.log("review form", form);
             resetForm();
           }}
         >
