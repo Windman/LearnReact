@@ -6,8 +6,8 @@ const INITIAL_REVIEW_FORM = {
   rating: 1,
 };
 
-function reducer(state, { formField, payload }) {
-  switch (formField) {
+function reducer(state, { actionType, payload }) {
+  switch (actionType) {
     case "setName":
       return {
         ...state,
@@ -23,7 +23,7 @@ function reducer(state, { formField, payload }) {
         ...state,
         rating: payload,
       };
-    case "reset":
+    case "resetModel":
       return {
         ...INITIAL_REVIEW_FORM,
       };
@@ -34,11 +34,15 @@ function reducer(state, { formField, payload }) {
 
 export const useReviewForm = () => {
   const [form, dispatch] = useReducer(reducer, INITIAL_REVIEW_FORM);
-  const updateField = (formField, payload) => dispatch({ formField, payload });
-  const resetForm = () => dispatch({formField: "reset"});
+  const updateName = (payload) => dispatch({ actionType: "setName", payload });
+  const updateText = (payload) => dispatch({ actionType: "setText", payload });
+  const updateRating = (payload) => dispatch({ actionType: "setRating", payload });
+  const resetForm = () => dispatch({ actionType: "resetModel" });
   return {
     form,
-    updateField,
+    updateName,
+    updateText,
+    updateRating,
     resetForm,
   };
 };

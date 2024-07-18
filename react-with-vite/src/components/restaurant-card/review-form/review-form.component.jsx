@@ -4,20 +4,20 @@ import { Counter } from "../../counter/counter.component";
 const counterSettings = {min: 1, max: 5};
 
 export const ReviewForm = () => {
-  const { form, updateField, resetForm } = useReviewForm();
+  const { form, updateName, updateRating, updateText, resetForm } = useReviewForm();
   const { name, text, rating } = form;
 
   const increment = () => {
     if (rating >= counterSettings.max) {
       return;
     }
-    updateField("setRating", rating + 1);
+    updateRating(rating + 1);
   };
   const decrement = () => {
     if (rating <= counterSettings.min) {
       return;
     }
-    updateField("setRating", rating - 1);
+    updateRating(rating - 1);
   };
 
   return (
@@ -27,7 +27,7 @@ export const ReviewForm = () => {
         <input
           value={name}
           onChange={(event) => {
-            updateField("setName", event.target.value);
+            updateName(event.target.value);
           }}
         />
       </div>
@@ -36,7 +36,7 @@ export const ReviewForm = () => {
         <input
           value={text}
           onChange={(event) => {
-            updateField("setText", event.target.value);
+            updateText(event.target.value);
           }}
         />
       </div>
