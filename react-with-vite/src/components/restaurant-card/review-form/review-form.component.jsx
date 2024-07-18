@@ -1,9 +1,22 @@
 import { useReviewForm } from "./review-form.hook";
-import { CounterContainer } from "../../counter/counter.container";
+import { Counter } from "../../counter/counter.component";
 
 export const ReviewForm = () => {
   const { form, updateField, resetForm } = useReviewForm();
   const { name, text, rating } = form;
+
+  const increment = () => {
+    if (rating >= 5) {
+      return;
+    }
+    updateField("setRating", rating + 1);
+  };
+  const decrement = () => {
+    if (rating <= 1) {
+      return;
+    }
+    updateField("setRating", rating - 1);
+  };
 
   return (
     <div>
@@ -27,16 +40,7 @@ export const ReviewForm = () => {
       </div>
       <div className="df">
         <span className="form__label">Rating</span>
-        {
-          <CounterContainer
-            value={rating}
-            min={1}
-            max={5}
-            onChanges={(counterValue) => {
-              updateField("setRating", counterValue);
-            }}
-          />
-        }
+        {<Counter value={rating} increment={increment} decrement={decrement} />}
       </div>
       <div>
         <button
