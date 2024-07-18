@@ -1,4 +1,5 @@
 import { CounterContainer } from "../counter/counter.container";
+import { ReviewForm } from "./review-form/review-form.component";
 
 const maxMenuItemCount = 5;
 const minMenuItemCount = 0;
@@ -29,6 +30,7 @@ export const RestaurantCard = ({ item }) => {
             <li key={reviewItem.id}>{reviewItem.text}</li>
           ))}
         </ul>
+        <ReviewForm/>
       </div>
     </div>
   );

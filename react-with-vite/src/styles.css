@@ -32,3 +32,14 @@
 .navigation-item {
     padding-right: 5px;
 }
+
+.form__label {
+    width: 200px;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: red;
+    position: fixed;
+    top: 0;
+}
