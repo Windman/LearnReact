@@ -1,7 +1,7 @@
 import { Button } from "../button/button.component";
 import { useTheme } from "../theme-context/theme-context";
 
-export const ThemeButton = () => {
+export const ThemeSwitcherButton = () => {
   const { value, toggleTheme } = useTheme();
 
   return (

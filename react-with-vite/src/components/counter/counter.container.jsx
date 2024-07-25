@@ -28,5 +28,5 @@ export const CounterContainer = ({
     setValue(value - 1);
   };
   
-  return <Counter value={value} increment={increment} decrement={decrement} />;
+  return <Counter value={value} increment={increment} decrement={decrement} viewVariant={"default"} />;
 };

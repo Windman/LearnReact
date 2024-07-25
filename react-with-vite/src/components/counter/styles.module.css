@@ -1,0 +1,12 @@
+.default {
+    font-size: 20px;
+}
+
+.small {
+    font-size: 14px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
