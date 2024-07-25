@@ -1,5 +1,6 @@
 import { CounterContainer } from "../counter/counter.container";
 import { ReviewForm } from "./review-form/review-form.component";
+import { Title } from "../title/title.component";
 
 const maxMenuItemCount = 5;
 const minMenuItemCount = 0;
@@ -9,6 +10,7 @@ export const RestaurantCard = ({ item }) => {
 
   return (
     <div className="restaurant-card" key={item.id}>
+      <Title name="Restaurants" />
       <div className="restaurant-card__name">
         <h1>{item.name}</h1>
       </div>
