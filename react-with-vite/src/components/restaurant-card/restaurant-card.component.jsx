@@ -1,11 +1,14 @@
 import { CounterContainer } from "../counter/counter.container";
 import { ReviewForm } from "./review-form/review-form.component";
 import { Title } from "../title/title.component";
+import { useUser } from "../context/user.context";
 
 const maxMenuItemCount = 5;
 const minMenuItemCount = 0;
 
 export const RestaurantCard = ({ item }) => {
+  const { value: userName } = useUser();
+
   if (!isValidRestaurantGuard(item)) return null;
 
   return (
@@ -20,7 +23,12 @@ export const RestaurantCard = ({ item }) => {
           {item.menu.map((menuItem) => (
             <li key={menuItem.id} className="menu-item">
               <div className="menu-item__label">{menuItem.name}</div>
-              <CounterContainer min={minMenuItemCount} max={maxMenuItemCount} />
+              {userName !== "anonimus" ? (
+                <CounterContainer
+                  min={minMenuItemCount}
+                  max={maxMenuItemCount}
+                />
+              ) : undefined}
             </li>
           ))}
         </ul>
@@ -32,17 +40,24 @@ export const RestaurantCard = ({ item }) => {
             <li key={reviewItem.id}>{reviewItem.text}</li>
           ))}
         </ul>
-        <ReviewForm/>
+        <ReviewForm />
       </div>
     </div>
   );
 };
 
+const isValidRestaurantGuard = (item) => {
+  if (
+    !item ||
+    !item.id ||
+    !item.name ||
+    !item.menu ||
+    !item.menu.length ||
+    !item.reviews ||
+    !item.reviews.length
+  ) {
+    return false;
+  }
 
-const isValidRestaurantGuard = (item) =>{
-    if (!item || !item.id || !item.name || !item.menu || !item.menu.length || !item.reviews || !item.reviews.length) {
-        return false;
-    }
-
-    return true;
-}
+  return true;
+};

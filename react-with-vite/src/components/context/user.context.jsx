@@ -3,17 +3,18 @@ import { useCallback } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
-const anonimusUser = '';
+const anonimusUser = 'anonimus';
+const hardCodedUserName = "Max";
 
 const UserContext = createContext();
 
-export const useUserContext = () => useContext(UserContext);
+export const useUser = () => useContext(UserContext);
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(anonimusUser);
 
-  const loginUser = useCallback((login) => {
-    setUser(login);
+  const loginUser = useCallback(() => {
+    setUser(hardCodedUserName);
   }, []);
 
   return (
