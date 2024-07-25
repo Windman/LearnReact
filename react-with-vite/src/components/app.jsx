@@ -4,7 +4,7 @@ import { RestaurantCard } from "./restaurant-card/restaurant-card.component";
 import { Navigation } from "./navigation/natigation.component";
 import { useState } from "react";
 import { ProgressBar } from "./progress/bar/progress-bar.component";
-import { ThemeContextProvider } from "./theme-context/theme-context";
+import { ThemeContextProvider } from "./context/theme.context";
 
 export const App = () => {
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants.length ? restaurants[0] : undefined);
