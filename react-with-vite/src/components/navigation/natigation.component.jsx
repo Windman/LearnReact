@@ -19,7 +19,6 @@ export const Navigation = ({
               onClick={() => {
                 onSelect(index);
                 setIndex(index);
-                ``;
               }}
               disabled={index === currentIndex}
             />
