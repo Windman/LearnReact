@@ -6,20 +6,18 @@ import { LoginButton } from "../login-button/login-button.component";
 
 export const Header = () => {
   const userContext = useUser();
-  let userLogin = undefined;
-  
   if (!userContext) {
     console.error("user context error");
   }
 
-  userLogin = userContext?.value;
+  const user = userContext?.value;
 
   return (
     <header className={classnames(styles.button)}>
       <h1>Restaurants</h1>
       <span className={styles.splitter}></span>
       <div className={styles.username}>
-        user name: {userLogin ?? "anonimus"}
+        user name: {user?.name ?? "anonimus"}
       </div>
       <LoginButton className={classnames(styles.loginButton)}></LoginButton>
       <ThemeSwitcherButton />

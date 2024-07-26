@@ -7,7 +7,7 @@ const maxMenuItemCount = 5;
 const minMenuItemCount = 0;
 
 export const RestaurantCard = ({ item }) => {
-  const { value: userName } = useUser();
+  const { value: user } = useUser();
 
   if (!isValidRestaurantGuard(item)) return null;
 
@@ -23,7 +23,7 @@ export const RestaurantCard = ({ item }) => {
           {item.menu.map((menuItem) => (
             <li key={menuItem.id} className="menu-item">
               <div className="menu-item__label">{menuItem.name}</div>
-              {userName !== "anonimus" ? (
+              {user.isAuthorized ? (
                 <CounterContainer
                   min={minMenuItemCount}
                   max={maxMenuItemCount}

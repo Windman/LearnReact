@@ -3,8 +3,12 @@ import { useCallback } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
-const anonimusUser = "anonimus";
-const signedInUser = "Max";
+const userName = "Max";
+
+const anonimusUser = {
+  name: "anonimus",
+  isAuthorized: false,
+};
 
 const UserContext = createContext();
 
@@ -14,8 +18,8 @@ export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(anonimusUser);
 
   const loginUser = useCallback(() => {
-    if (user === "anonimus"){
-      setUser(signedInUser);
+    if (!user.isAuthorized) {
+      setUser({...user, name: userName, isAuthorized: true});
     } else {
       setUser(anonimusUser);
     }
