@@ -1,0 +1,23 @@
+.button {
+    border-radius: 0.5px;
+    padding: 5px 10px;
+    height: 40px;
+}
+
+.default {
+    font-size: 20px;
+}
+
+.small {
+    font-size: 14px;
+}
+
+.light {
+    background-color: orange;
+    color: black;
+}
+
+.dark {
+    background-color: black;
+    color: white
+}
