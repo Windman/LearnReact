@@ -8,6 +8,7 @@ import { ThemeContextProvider } from "./context/theme.context";
 import { UserContextProvider } from "./context/user.context";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+
 export const App = () => {
   const [activeRestaurant, setActiveRestaurant] = useState(
     restaurants.length ? restaurants[0] : undefined
@@ -28,7 +29,7 @@ export const App = () => {
                 items={restaurants}
                 onSelect={handleRestaurantSelection}
               />
-              <RestaurantCard item={activeRestaurant} />
+              <RestaurantCard id={activeRestaurant?.id ?? 0} />
             </Layout>
           </ThemeContextProvider>
         </UserContextProvider>

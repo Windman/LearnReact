@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { restarauntsSlice } from "./entities/restaraunts";
+import { restarauntsSlice } from "./entities/restaraunts/index";
 
 export const store = configureStore({
   reducer: {

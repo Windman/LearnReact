@@ -3,12 +3,16 @@ import { ReviewForm } from "./review-form/review-form.component";
 import { Title } from "../title/title.component";
 import { useUser } from "../context/user.context";
 
+import { useSelector } from "react-redux";
+import { selectRestarauntById } from "../../redux/entities/restaraunts";
+
 const maxMenuItemCount = 5;
 const minMenuItemCount = 0;
 
-export const RestaurantCard = ({ item }) => {
+export const RestaurantCard = ({ id }) => {
   const { value: user } = useUser();
-
+  const item = useSelector((state) => selectRestarauntById(state, id));
+ 
   if (!isValidRestaurantGuard(item)) return null;
 
   return (

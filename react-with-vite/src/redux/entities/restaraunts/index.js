@@ -9,7 +9,7 @@ const initialState = {
   ids: normalizedRestaurants.map(({ id }) => id),
 };
 
-export const restaurantsSlice = createSlice({
+export const restarauntsSlice = createSlice({
   name: "restaraunts",
   initialState,
   selectors: {
@@ -18,5 +18,5 @@ export const restaurantsSlice = createSlice({
   },
 });
 
-export const { selectHeadphoneById, selectHeadphonesIds } =
-  restaurantsSlice.selectors;
+export const { selectRestarauntById, selectestarauntIds } =
+  restarauntsSlice.selectors;
