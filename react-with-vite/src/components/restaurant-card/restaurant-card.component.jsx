@@ -1,5 +1,5 @@
 import { ReviewForm } from "./review-form/review-form.component";
-import { RestaurantMenu } from "./menu-form/restaurant-menu.component";
+import { RestaurantMenu } from "./restaurant-menu/restaurant-menu.component";
 import { Title } from "../title/title.component";
 import { useSelector } from "react-redux";
 import { selectRestarauntById } from "../../redux/entities/restaraunts";
