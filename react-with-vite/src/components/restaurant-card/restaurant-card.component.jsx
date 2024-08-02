@@ -3,6 +3,7 @@ import { RestaurantMenu } from "./restaurant-menu/restaurant-menu.component";
 import { Title } from "../title/title.component";
 import { useSelector } from "react-redux";
 import { selectRestarauntById } from "../../redux/entities/restaraunts";
+import { ReviewList } from "../restaurant-card/review-list/review-list.component";
 
 export const RestaurantCard = ({ id }) => {
   const restaurant = useSelector((state) => selectRestarauntById(state, id));
@@ -17,12 +18,7 @@ export const RestaurantCard = ({ id }) => {
       </div>
       <RestaurantMenu menuIds={restaurant.menu}></RestaurantMenu>
       <div className="restaurant-card__reviews">
-        <h3>Reviews</h3>
-        <ul className="restaurant-card__review-list">
-          {restaurant.reviews.map((reviewItem) => (
-            <li key={reviewItem.id}>{reviewItem.text}</li>
-          ))}
-        </ul>
+        <ReviewList reviewsIds={restaurant.reviews}></ReviewList>
         <ReviewForm />
       </div>
     </div>
