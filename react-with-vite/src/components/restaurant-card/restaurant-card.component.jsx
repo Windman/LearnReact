@@ -1,43 +1,37 @@
-import { CounterContainer } from "../counter/counter.container";
 import { ReviewForm } from "./review-form/review-form.component";
+import { RestaurantMenuItem } from "./restaurant-menu-item/restaurant-menu-item.component";
 import { Title } from "../title/title.component";
-import { useUser } from "../context/user.context";
+import { useSelector } from "react-redux";
+import { selectRestarauntById } from "../../redux/entities/restaraunts";
+import { ReviewItem } from "./review-item/review-item.component";
+import styles from "./styles.module.css";
 
-const maxMenuItemCount = 5;
-const minMenuItemCount = 0;
+export const RestaurantCard = ({ id }) => {
+  const restaurant = useSelector((state) => selectRestarauntById(state, id));
 
-export const RestaurantCard = ({ item }) => {
-  const { value: user } = useUser();
-
-  if (!isValidRestaurantGuard(item)) return null;
+  if (!isValidRestaurantGuard(restaurant)) return null;
 
   return (
-    <div className="restaurant-card" key={item.id}>
+    <div className={styles.card} key={restaurant.id}>
       <Title name="Restaurants" />
-      <div className="restaurant-card__name">
-        <h1>{item.name}</h1>
-      </div>
-      <div className="restaurant-card__menu">
+      <h1>{restaurant.name}</h1>
+      <div>
         <h3>Menu</h3>
-        <ul className="restaurant-card__menu-list">
-          {item.menu.map((menuItem) => (
-            <li key={menuItem.id} className="menu-item">
-              <div className="menu-item__label">{menuItem.name}</div>
-              {user.isAuthorized ? (
-                <CounterContainer
-                  min={minMenuItemCount}
-                  max={maxMenuItemCount}
-                />
-              ) : undefined}
+        <ul>
+          {restaurant.menu.map((id) => (
+            <li key={id} className={styles.item}>
+              <RestaurantMenuItem id={id}></RestaurantMenuItem>
             </li>
           ))}
         </ul>
       </div>
-      <div className="restaurant-card__reviews">
+      <div>
         <h3>Reviews</h3>
         <ul className="restaurant-card__review-list">
-          {item.reviews.map((reviewItem) => (
-            <li key={reviewItem.id}>{reviewItem.text}</li>
+          {restaurant.reviews.map(id => (
+            <li key={id}>
+              <ReviewItem id={id}></ReviewItem>
+            </li>
           ))}
         </ul>
         <ReviewForm />
