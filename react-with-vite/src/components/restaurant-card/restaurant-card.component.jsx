@@ -14,12 +14,10 @@ export const RestaurantCard = ({ id }) => {
   return (
     <div className={styles.card} key={restaurant.id}>
       <Title name="Restaurants" />
-      <div className={styles.name}>
-        <h1>{restaurant.name}</h1>
-      </div>
-      <div className={styles.menu}>
+      <h1>{restaurant.name}</h1>
+      <div>
         <h3>Menu</h3>
-        <ul className={styles.list}>
+        <ul>
           {restaurant.menu.map((id) => (
             <li key={id} className={styles.item}>
               <RestaurantMenuItem id={id}></RestaurantMenuItem>
@@ -27,7 +25,7 @@ export const RestaurantCard = ({ id }) => {
           ))}
         </ul>
       </div>
-      <div className={styles.reviews}>
+      <div>
         <h3>Reviews</h3>
         <ul className="restaurant-card__review-list">
           {restaurant.reviews.map(id => (
