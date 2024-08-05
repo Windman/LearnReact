@@ -1,37 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  entities: {},
-  ids: [],
 };
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   selectors: {
-    selectCartByUserId: (state, id) => {
-      if (!state.entities[id]) {
-        return {};
-      }
-
-      return state.entities[id];
-    },
+    selectAmountById: (state, id) => state[id] || 0,
+    selectCartState: (state) => state,
   },
   reducers: {
-    addCartItem: (state, action) => {
-      const {userId, menuId} = action.payload;
-      if (!state.entities[userId]) {
-        state.entities[userId] = {menuId, count: 1};
-      } else {
-        const current = state.entities[userId];
-        current.count = current.count + 1;
-      }
+    addMenuItem: (state, {payload}) => {
+      state[payload] = (state[payload] || 0) + 1;
     },
-    removeCartItem: (state, action) => {
-      throw new Error("not implemented")
+    removeMenuItem: (state, {payload}) => {
+      if (!state[payload]) {
+        return state;
+      }
+
+      state[payload] = state[payload] - 1;
+
+      if (state[payload] <= 0) {
+        delete state[payload];
+      }
     },
   },
 });
 
-export const { selectCartByUserId } = cartSlice.selectors;
-export const { addCartItem, removeCartItem } = cartSlice.actions;
+export const { selectAmountById, selectCartState } = cartSlice.selectors;
+export const { addMenuItem, removeMenuItem } = cartSlice.actions;

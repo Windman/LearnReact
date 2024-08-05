@@ -1,28 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
+import { addMenuItem, removeMenuItem, selectAmountById} from "../../redux/entities/cart/index";
 
-import {
-  addCartItem,
-  removeCartItem,
-  selectCartByUserId,
-} from "../../redux/entities/cart/index";
 import { Counter } from "../counter/counter.component";
-import { useUser } from "../context/user.context";
 
-export const Order = ({menuItem}) => {
-  const { value: user } = useUser();
+export const Order = ({id}) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => selectCartByUserId(state, user.id));
+  const amount = useSelector((state) => selectAmountById(state, id));
   
   const addItem = () => {
-    dispatch(addCartItem({userId: user.id, menuId: menuItem.id, count: 1}));
+    dispatch(addMenuItem(id));
   };
 
   const removeItem = () => {
-    dispatch(removeCartItem({userId: user.id, menuId: menuItem.id}));
+    dispatch(removeMenuItem(id));
   };
   return (
     <div>
-      <Counter value={cart.amount} increment={addItem} decrement={removeItem} />
+      <Counter value={amount} increment={addItem} decrement={removeItem} />
     </div>
   );
 };

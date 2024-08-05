@@ -1,16 +1,19 @@
-import { useUser } from "../context/user.context";
 import { useSelector } from "react-redux";
 
 import styles from "./styles.module.css";
-import { selectCartByUserId } from "../../redux/entities/cart";
+import { selectCartState } from "../../redux/entities/cart";
 
 export const Cart = () => {
-  const { value: user } = useUser();
-  const cart = useSelector((state) => selectCartByUserId(state, user.id));
-
+  const cart = useSelector((state) => selectCartState(state));
   return (
     <div className={styles.cart}>
-      Cart 
+      <ul>
+        {Object.keys(cart).map((menuId) => (
+          <li key={menuId}>
+            {menuId} - {cart[menuId]}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
