@@ -16,7 +16,6 @@ const anonimusUser = {
 };
 
 const UserContext = createContext();
-
 export const useUser = () => useContext(UserContext);
 
 export const UserContextProvider = ({ children }) => {

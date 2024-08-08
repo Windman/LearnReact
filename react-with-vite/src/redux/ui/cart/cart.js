@@ -1,20 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-};
+const initialState = {};
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   selectors: {
-    selectAmountById: (state, id) => state[id] || 0,
+    selectAmountById: (state, id) => state.entities[id] || 0,
     selectCartState: (state) => state,
   },
   reducers: {
-    addMenuItem: (state, {payload}) => {
+    addMenuItem: (state, { payload }) => {
       state[payload] = (state[payload] || 0) + 1;
     },
-    removeMenuItem: (state, {payload}) => {
+    removeMenuItem: (state, { payload }) => {
       if (!state[payload]) {
         return state;
       }

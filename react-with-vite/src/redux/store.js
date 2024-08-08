@@ -14,3 +14,6 @@ export const store = configureStore({
     [cartSlice.name]: cartSlice.reducer
   },
 });
+
+
+// how to reser store?
