@@ -13,8 +13,7 @@ export const RestaurantCard = ({ id }) => {
 
   return (
     <div className={styles.card} key={restaurant.id}>
-      <Title name="Restaurants" />
-      <h1>{restaurant.name}</h1>
+      <Title name={restaurant.name} />
       <div>
         <h3>Menu</h3>
         <ul>

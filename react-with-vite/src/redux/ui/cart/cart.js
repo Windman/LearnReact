@@ -6,7 +6,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   selectors: {
-    selectAmountById: (state, id) => state.entities[id] || 0,
+    selectAmountById: (state, id) => state[id] || 0,
     selectCartState: (state) => state,
   },
   reducers: {

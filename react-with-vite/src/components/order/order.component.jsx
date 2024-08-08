@@ -3,7 +3,7 @@ import {
   addMenuItem,
   removeMenuItem,
   selectAmountById,
-} from "../../redux/entities/cart/index";
+} from "../../redux/ui/cart/cart";
 import { Counter } from "../counter/counter.component";
 import { useUser } from "../context/user.context";
 

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { restarauntsSlice } from "./entities/restaraunts/index";
 import { menuSlice } from "./entities/menu/index";
-import { reviewSlice} from "./entities/reviews/index";
-import { usersSlice} from "./entities/users/index";
-import { cartSlice } from "./entities/cart";
+import { reviewSlice } from "./entities/reviews/index";
+import { usersSlice } from "./entities/users/index";
+import { cartSlice } from "./ui/cart/cart";
 
 export const store = configureStore({
   reducer: {
@@ -11,9 +11,9 @@ export const store = configureStore({
     [menuSlice.name]: menuSlice.reducer,
     [reviewSlice.name]: reviewSlice.reducer,
     [usersSlice.name]: usersSlice.reducer,
-    [cartSlice.name]: cartSlice.reducer
+    [cartSlice.name]: cartSlice.reducer,
   },
 });
 
-
-// how to reser store?
+// Questions
+// How to reset store?

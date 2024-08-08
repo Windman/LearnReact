@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import styles from "./styles.module.css";
-import { selectCartState } from "../../redux/entities/cart";
+import { selectCartState } from "../../redux/ui/cart/cart";
 
 export const Cart = () => {
   const cart = useSelector((state) => selectCartState(state));
