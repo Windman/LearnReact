@@ -4,6 +4,7 @@ import { RestaurantrsPage } from "./restaurants-page/resparaunts-page.component"
 import { RestaurantPage } from "./restaurant-page/restaurant-page.component";
 import { RestaurantMenuPage } from "./restaurant-page/menu-page/menu-page.component";
 import { RestaurantReviewPage } from "./restaurant-page/review-page/review-page.component";
+import { DishPage } from "./dish-page/dish-page.component";
 
 export const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
       element: <Layout />,
       children: [
         {
-          path: "/restaurants",
+          path: "restaurants",
           element: <RestaurantrsPage />,
           children: [
             {
@@ -33,7 +34,11 @@ export const router = createBrowserRouter([
               ]
             },
           ],
+          
         },
+        { path: "dish/:dishId",
+          element: <DishPage/>,
+        }
       ],
       errorElement: <div>Page is not Found</div>,
     },
