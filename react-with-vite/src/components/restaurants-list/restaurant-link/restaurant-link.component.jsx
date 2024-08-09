@@ -13,10 +13,7 @@ export const RestaurantLink = ({ id }) => {
 
   return (
     <>
-      <NavLink
-        className={({ isActive }) => isActive && styles.activeLink}
-        to={id}
-      >
+      <NavLink className={(isActive) => isActive && styles.activeLink} to={id}>
         {({ isActive }) => (isActive ? <span>current - {name}</span> : name)}
       </NavLink>
     </>
