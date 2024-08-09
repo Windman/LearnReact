@@ -7,7 +7,10 @@ export const cartSlice = createSlice({
   initialState,
   selectors: {
     selectAmountById: (state, id) => state[id] || 0,
-    selectCartState: (state) => state,
+    selectCartState: (state) =>
+      Object.keys(state).map((menuId) => {
+        return { itemId: menuId, amount: state[menuId] };
+      }),
   },
   reducers: {
     addMenuItem: (state, { payload }) => {

@@ -8,9 +8,9 @@ export const Cart = () => {
   return (
     <div className={styles.cart}>
       <ul>
-        {Object.keys(cart).map((menuId) => (
-          <li key={menuId}>
-            {menuId} - {cart[menuId]}
+        {cart.map(({itemId, amount}) => (
+          <li key={itemId}>
+            {itemId} - {amount}
           </li>
         ))}
       </ul>

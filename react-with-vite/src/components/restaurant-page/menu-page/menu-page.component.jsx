@@ -6,14 +6,16 @@ import { useParams } from "react-router-dom";
 
 export const RestaurantMenuPage = () => {
   const { restId } = useParams();
-  const restaurant = useSelector((state) => selectRestarauntById(state, restId));
+  const restaurant = useSelector((state) =>
+    selectRestarauntById(state, restId)
+  );
   return (
     <div>
       <h3>Menu</h3>
       <ul>
         {restaurant.menu.map((id) => (
           <li key={id} className={styles.item}>
-            <RestaurantMenuItem id={id}></RestaurantMenuItem>
+            <RestaurantMenuItem id={id} />
           </li>
         ))}
       </ul>

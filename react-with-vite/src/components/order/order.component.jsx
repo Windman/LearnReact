@@ -12,6 +12,8 @@ export const Order = ({ id }) => {
   const dispatch = useDispatch();
   const amount = useSelector((state) => selectAmountById(state, id));
 
+  if (!user.isAuthorized) return null;
+
   const addItem = () => {
     dispatch(addMenuItem(id));
   };
@@ -22,18 +24,7 @@ export const Order = ({ id }) => {
 
   return (
     <div>
-      {user.isAuthorized ? (
-        <div>
-          {" "}
-          <Counter
-            value={amount}
-            increment={addItem}
-            decrement={removeItem}
-          />{" "}
-        </div>
-      ) : (
-        <></>
-      )}
+      <Counter value={amount} increment={addItem} decrement={removeItem} />
     </div>
   );
 };
