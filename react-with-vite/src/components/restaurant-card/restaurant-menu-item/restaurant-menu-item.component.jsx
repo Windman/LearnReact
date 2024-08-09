@@ -8,7 +8,7 @@ export const RestaurantMenuItem = ({ id }) => {
 
   return (
     <div className={styles.item}>
-     <NavLink to={`../../../dish/${menuItem.id}`}>{menuItem.name}</NavLink>
+     <NavLink to={`/dish/${menuItem.id}`}>{menuItem.name}</NavLink>
     </div>
   );
 };
