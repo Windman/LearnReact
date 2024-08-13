@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantIds } from "../../redux/entities/restaraunts";
+import { selectRestaurantsIds } from "../../redux/entities/restaraunts";
 import { RestaurantLink } from "./restaurant-link/restaurant-link.component";
 
 export const RestaurantsList = () => {
-  const ids = useSelector(selectRestaurantIds);
+  const ids = useSelector(selectRestaurantsIds);
 
   if (!ids.length) {
     return null;
