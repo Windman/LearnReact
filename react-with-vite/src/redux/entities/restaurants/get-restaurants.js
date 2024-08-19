@@ -16,7 +16,8 @@ export const getRestaurants = createAsyncThunk(
   },
   {
     condition: (_, { getState }) => {
-      return selectRestaurantsIds(getState()).length === 0;
+      const state = getState();
+      return selectRestaurantsIds(state).length === 0;
     },
   }
 );

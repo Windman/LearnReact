@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import { selectRestarauntById } from "../../../redux/entities/restaraunts";
 import { RestaurantMenuItem } from "../../restaurant-card/restaurant-menu-item/restaurant-menu-item.component";
 import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
+import { selectRestaurantById } from "../../../redux/entities/restaurant";
 
 export const RestaurantMenuPage = () => {
   const { restId } = useParams();
   const restaurant = useSelector((state) =>
-    selectRestarauntById(state, restId)
+    selectRestaurantById(state, restId)
   );
   return (
     <div>

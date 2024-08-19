@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../../redux/entities/restaraunts";
+import { selectRestaurantsIds } from "../../redux/entities/restaurants";
 import { RestaurantLink } from "./restaurant-link/restaurant-link.component";
 import { useRequest } from "../../hooks/use-request";
-import { getRestaurants } from "../../redux/entities/restaraunts/get-restaurants";
+import { getRestaurants } from "../../redux/entities/restaurants/get-restaurants";
 
 export const RestaurantsList = () => {
   const ids = useSelector(selectRestaurantsIds);

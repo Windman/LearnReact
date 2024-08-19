@@ -11,10 +11,10 @@ export const restarauntsSlice = createSlice({
       entityAdapter.setAll(state, payload);
     }),
   selectors: {
-    selectRestarauntById: (state, id) => state.entities[id],
+    //selectRestaurantById: (state, id) => state.entities[id],
     selectRestaurantsIds: (state) => state.ids,
   },
 });
 
-export const { selectRestarauntById, selectRestaurantsIds } = restarauntsSlice.selectors;
+export const { selectRestaurantsIds } = restarauntsSlice.selectors;
                

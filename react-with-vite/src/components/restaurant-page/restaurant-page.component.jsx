@@ -1,10 +1,24 @@
 import { useParams } from "react-router-dom";
-import { RestaurantCard } from "../restaurant-card/restaurant-card.component";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { getRestaurant } from "../../redux/entities/restaurant/get-restaurant";
+import { useRequest } from "../../hooks/use-request";
+import { selectRestaurantById } from "../../redux/entities/restaurant";
+import { useSelector } from "react-redux";
 
 export const RestaurantPage = () => {
   const { restId } = useParams();
+  const rest = useSelector(selectRestaurantById);
+
+  const requestStatus = useRequest(getRestaurant, restId);
+
+  if (requestStatus === "pending") {
+    return <div>...loading</div>;
+  }
+
+  if (requestStatus === "rejected") {
+    return <div>error</div>;
+  }
 
   return (
     <>
@@ -15,7 +29,6 @@ export const RestaurantPage = () => {
         <NavLink to={"review"}>Review</NavLink>
       </div>
 
-      <RestaurantCard id={restId ?? 0} />
       <Outlet />
     </>
   );

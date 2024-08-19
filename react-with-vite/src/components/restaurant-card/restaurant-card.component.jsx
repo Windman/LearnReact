@@ -1,9 +1,9 @@
+import { selectRestaurantsIds } from "../../redux/entities/restaurants";
 import { Title } from "../title/title.component";
 import { useSelector } from "react-redux";
-import { selectRestarauntById } from "../../redux/entities/restaraunts";
 
 export const RestaurantCard = ({ id }) => {
-  const restaurant = useSelector((state) => selectRestarauntById(state, id));
+  const restaurant = useSelector((state) => selectRestaurantsIds(state, id));
 
   if (!isValidRestaurantGuard(restaurant)) return null;
 

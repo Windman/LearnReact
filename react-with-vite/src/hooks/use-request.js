@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { selectRequestStatus } from "../redux/ui/cart/request/request";
+import { selectRequestStatus } from "../redux/ui/request/request";
 
 export const useRequest = (thunk, ...params) => {
   const [request, setRequest] = useState();
