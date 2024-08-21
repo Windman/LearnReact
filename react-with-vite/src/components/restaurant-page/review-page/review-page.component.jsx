@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ReviewItem } from "../../restaurant-card/review-item/review-item.component";
 import { ReviewForm } from "../../restaurant-card/review-form/review-form.component";
-import { selectRestaurantById } from "../../../redux/entities/restaurant";
+import { selectRestaurantById } from "../../../redux/entities/restaurants";
 
 export const RestaurantReviewPage = () => {
   const { restId } = useParams();

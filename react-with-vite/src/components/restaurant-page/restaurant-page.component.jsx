@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { getRestaurant } from "../../redux/entities/restaurant/get-restaurant";
+import { getRestaurant } from "../../redux/entities/restaurants/get-restaurant";
 import { useRequest } from "../../hooks/use-request";
-import { selectRestaurantById } from "../../redux/entities/restaurant";
+import { selectRestaurantById } from "../../redux/entities/restaurants";
 import { useSelector } from "react-redux";
 
 export const RestaurantPage = () => {

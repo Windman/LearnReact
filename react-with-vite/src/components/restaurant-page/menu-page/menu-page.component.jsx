@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RestaurantMenuItem } from "../../restaurant-card/restaurant-menu-item/restaurant-menu-item.component";
 import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
-import { selectRestaurantById } from "../../../redux/entities/restaurant";
+import { selectRestaurantById } from "../../../redux/entities/restaurants";
 
 export const RestaurantMenuPage = () => {
   const { restId } = useParams();
