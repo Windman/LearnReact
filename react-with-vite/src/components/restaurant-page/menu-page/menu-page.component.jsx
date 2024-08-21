@@ -2,20 +2,36 @@ import { useSelector } from "react-redux";
 import { RestaurantMenuItem } from "../../restaurant-card/restaurant-menu-item/restaurant-menu-item.component";
 import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
-import { selectRestaurantById } from "../../../redux/entities/restaurants";
+import { selectDishIds } from "../../../redux/entities/dishes";
+import { getDishes } from "../../../redux/entities/dishes/get-dishes";
+import { useRequest } from "../../../hooks/use-request";
 
 export const RestaurantMenuPage = () => {
   const { restId } = useParams();
-  const restaurant = useSelector((state) =>
-    selectRestaurantById(state, restId)
-  );
+  
+  const ids = useSelector(selectDishIds);
+
+  const requestStatus = useRequest(getDishes, restId);
+
+  if (requestStatus === "pending") {
+    return <div>...loading</div>;
+  }
+
+  if (requestStatus === "rejected") {
+    return <div>error</div>;
+  }
+
+  if (!ids.length) {
+    return null;
+  }
+
   return (
     <div>
       <h3>Menu</h3>
       <ul>
-        {restaurant.menu.map((id) => (
-          <li key={id} className={styles.item}>
-            <RestaurantMenuItem id={id} />
+        {ids.map((dishId) => (
+          <li key={dishId} className={styles.item}>
+            <RestaurantMenuItem id={dishId} />
           </li>
         ))}
       </ul>
