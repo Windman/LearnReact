@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const getDishes = createAsyncThunk(
-  "dishes/getDishByRestaurantId",
+export const getMenu = createAsyncThunk(
+  "menu/getMenu",
   async (restId, { rejectWithValue }) => {
     const response = await fetch(
       `http://localhost:3001/api/dishes/?restaurantId=${restId}`
@@ -17,7 +17,7 @@ export const getDishes = createAsyncThunk(
   },
   {
     condition: (restId, { getState }) => {
-      return getState().dishes.ids.length === 0 
+      return true; // ?? What would be a condition? 
     },
   }
 );
