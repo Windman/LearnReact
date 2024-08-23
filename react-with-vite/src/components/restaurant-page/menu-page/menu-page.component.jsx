@@ -18,7 +18,7 @@ export const RestaurantMenuPage = () => {
   }
 
   if (requestStatus === "rejected") {
-    return <div>menu error</div>;
+    return <div>error</div>;
   }
 
   if (!ids.length) {
