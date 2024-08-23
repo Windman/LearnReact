@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-//import { selectDishById } from "../../redux/entities/dishes";
 import { Order } from "../order/order.component";
 import { selectDishById } from "../../redux/entities/dishes";
 import { useRequest } from "../../hooks/use-request";
