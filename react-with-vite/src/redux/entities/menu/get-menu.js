@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { isMenuAvailable } from "../restaurants";
 
 export const getMenu = createAsyncThunk(
   "menu/getMenu",
@@ -17,7 +18,7 @@ export const getMenu = createAsyncThunk(
   },
   {
     condition: (restId, { getState }) => {
-      return true; // ?? What would be a condition? 
+      return !isMenuAvailable(getState(), restId);
     },
   }
 );

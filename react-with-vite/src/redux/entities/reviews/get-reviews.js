@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { isReviewAvailable } from "../restaurants";
 
 export const getReviews = createAsyncThunk(
   "reviews/getReviews",
@@ -16,8 +17,8 @@ export const getReviews = createAsyncThunk(
     return result;
   },
   {
-    condition: (_, { getState }) => {
-      return true;
+    condition: (restId, { getState }) => {
+      return !isReviewAvailable(getState(), restId);
     },
   }
 );
