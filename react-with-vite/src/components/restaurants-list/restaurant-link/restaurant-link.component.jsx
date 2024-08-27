@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
-import { selectRestarauntById } from "../../../redux/entities/restaraunts";
+import { selectRestaurantById } from "../../../redux/entities/restaurants";
 
 export const RestaurantLink = ({ id }) => {
   const { name } =
-    useSelector((state) => selectRestarauntById(state, id)) || {};
+    useSelector((state) => selectRestaurantById(state, id)) || {};
 
   if (!name) {
     return null;
