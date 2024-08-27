@@ -5,6 +5,7 @@ import { getRestaurant } from "../../redux/entities/restaurants/get-restaurant";
 import { useRequest } from "../../hooks/use-request";
 import { selectRestaurantById } from "../../redux/entities/restaurants";
 import { useSelector } from "react-redux";
+import { RestaurantCard } from "../restaurant-card/restaurant-card.component";
 
 export const RestaurantPage = () => {
   const { restId } = useParams();
@@ -22,6 +23,7 @@ export const RestaurantPage = () => {
 
   return (
     <>
+      <RestaurantCard id={restId}/>
       <div>
         <NavLink to={"menu"}>Menu</NavLink>
       </div>
