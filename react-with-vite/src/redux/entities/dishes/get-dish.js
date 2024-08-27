@@ -15,9 +15,4 @@ export const getDish = createAsyncThunk(
 
     return result;
   },
-  {
-    condition: (dishId, { getState }) => {
-      return true; 
-    },
-  }
 );
